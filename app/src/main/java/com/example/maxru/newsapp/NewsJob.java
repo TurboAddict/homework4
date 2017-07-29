@@ -11,6 +11,7 @@ import com.firebase.jobdispatcher.JobService;
  * Created by maxru on 7/24/17.
  */
 
+//We need a job service to run in the background in order to refresh the articles at a certain rate
 public class NewsJob extends JobService {
     AsyncTask mBackgroundTask;
 
@@ -20,6 +21,7 @@ public class NewsJob extends JobService {
 
             @Override
             protected void onPreExecute() {
+                //Alerts the user when the app has been refreshed
                 Toast.makeText(NewsJob.this, "News refreshed", Toast.LENGTH_SHORT).show();
                 super.onPreExecute();
             }
@@ -33,11 +35,10 @@ public class NewsJob extends JobService {
             @Override
             protected void onPostExecute(Object o) {
                 jobFinished(job, false);
-                Log.d("asd", "as");
+                MainActivity.update();
                 super.onPostExecute(o);
             }
         };
-
         mBackgroundTask.execute();
         return true;
     }

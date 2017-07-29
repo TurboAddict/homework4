@@ -17,7 +17,7 @@ import com.firebase.jobdispatcher.Trigger;
 public class ScheduleUtils {
     private static final String TAG = "news_job";
     private static final int SCHEDULE_INTERVAL_MINUTES = 0;
-    private static final int SYNC_FLEXTIME_SECONDS = 60;
+    private static final int SYNC_FLEXTIME_SECONDS = 6;
 
     static void scheduleRefresh(@NonNull final Context context) {
         FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(context));
@@ -27,7 +27,7 @@ public class ScheduleUtils {
                 .setTag(TAG)
                 .setConstraints(Constraint.ON_ANY_NETWORK)
                 .setRecurring(true)
-                .setLifetime(Lifetime.FOREVER)
+                .setLifetime(Lifetime.UNTIL_NEXT_BOOT)
                 .setTrigger(Trigger.executionWindow(SCHEDULE_INTERVAL_MINUTES,
                         SCHEDULE_INTERVAL_MINUTES + SYNC_FLEXTIME_SECONDS))
                 .setReplaceCurrent(true)

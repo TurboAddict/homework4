@@ -80,6 +80,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ItemHolder> {
             view.setOnClickListener(this);
         }
 
+        //We arent using getters to get the information, instead information is being grabbed from the database
         public void bind(int pos){
             cursor.moveToPosition(pos);
             title.setText(cursor.getString(cursor.getColumnIndex(Contract.TABLE_NEWS.COLUMN_NAME_TITLE)));

@@ -5,6 +5,7 @@ package com.example.maxru.newsapp.data;
  */
 
 public class NewsItem {
+    //Adjusted for urlToImage
     private String title;
     private String url;
     private String author;
@@ -44,7 +45,9 @@ public class NewsItem {
         return date;
     }
 
+    //Added getter for urlToImage
     public String getUrlToImage() { return urlToImage; }
 
+    //Added setter for urlToImage
     public void setUrlToImage(String urlToImage) { this.urlToImage = urlToImage; }
 }

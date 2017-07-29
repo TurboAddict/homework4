@@ -67,6 +67,7 @@ public class NetworkUtils {
         JSONObject main = new JSONObject(json);
         JSONArray items = main.getJSONArray("articles");
 
+        //Instead of grabbing the values from JSON, we grab it from the table
         for(int i = 0; i < items.length(); i++) {
             JSONObject item = items.getJSONObject(i);
             results.add(new NewsItem(item.getString("title"), item.getString("description"), item.getString("url"), item.getString("publishedAt"), item.getString("urlToImage")));

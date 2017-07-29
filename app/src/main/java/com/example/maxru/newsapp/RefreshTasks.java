@@ -2,6 +2,7 @@ package com.example.maxru.newsapp;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.LoaderManager;
 
 import com.example.maxru.newsapp.data.DBHelper;
 import com.example.maxru.newsapp.data.DatabaseUtils;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 
 public class RefreshTasks {
 
+    //Grabs new data via the api and tries to add it into the database
     public static void refresh(Context context, String source) {
         ArrayList<NewsItem> results = null;
         URL url = NetworkUtils.buildUrl(source);
